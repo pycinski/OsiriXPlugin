@@ -1,0 +1,9 @@
+//
+//  bartImportFilter.cpp
+//  bart4
+//
+//  Created by Bartlomiej Pycinski on 11-11-07.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#include "bartImportFilter.h"

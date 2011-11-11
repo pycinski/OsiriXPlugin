@@ -1,0 +1,5 @@
+Aby wtyczka sie kompilowala, nalezy stworzyc symlink ITK180 wskazujacy na katalog z naglowkami ITK pochodzacymi z OsiriXa.
+
+
+Autor: Bartlomiej Pycinski
+Kontakt: pycinski@gmail.com
