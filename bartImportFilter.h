@@ -1,3 +1,5 @@
+#ifndef bartImportFilter_h
+#define bartImportFilter_h
 //
 //  bartImportFilter.h
 //  bart4
@@ -22,7 +24,9 @@ public:
     typedef typename Superclass::IndexType IndexType;
     typedef typename Superclass::SpacingType SpacingType;
     typedef typename Superclass::RegionType RegionType;
-    typedef typename Superclass::OutputImageType::PixelType PixelType;
+    typedef TPixel PixelType;
+    //troche naokolo w ponizszy sposob:
+    //typedef typename Superclass::OutputImageType::PixelType PixelType;
     
     /** Tworzenie przez funkcje statyczna New() */
     itkNewMacro(Self);
@@ -68,24 +72,27 @@ template <typename TPixel, unsigned int VImageDimension>
 void bartImportFilter<TPixel, VImageDimension>
 ::setInputParameters(const int size[VImageDimension], const float* buffer, const float spacing [VImageDimension], const float origin[VImageDimension], const bool deleteImportBuffer )
 {
-    //kopiuj pobrane parametry do prywatnych skladowych. Uzywa metody copy, bo nie wiadomo,
-    //jaki jest wymiar obrazka (zwykle 2 lub 3) oraz jakie sa danych wyjsciowych (prawie na 
-    //pewno double)
     
     m_deleteImportBuffer = deleteImportBuffer;
+    //TODO cos z tym zrobic
+    // Rzutowanie w tej chwili jest bez sensu, bo i tak wszystko to sa floaty, a gdyby sprobowac
+    // stworzyc obiekt z parametrem double, do sie wysypie, bo nie moze rzutowac float* na double*  
     m_pixelData = const_cast<PixelType*>(static_cast<const PixelType*>(buffer));
-    m_totalNumberOfPixels = std::accumulate(size, size+VImageDimension, 1, std::multiplies<int>());
     
+    //kopiuj pobrane parametry do prywatnych skladowych. Uzywa metody copy, bo nie wiadomo,
+    //jaki jest wymiar obrazka (zwykle 2 lub 3) czyli rozmiar wektora oraz jakie sa dane
+    //wyjsciowe (prawie na pewno double), a funkcja copy kopiuje skladnik po skladniku, dokonujac
+    //ewentualnych konwersji (o ile sa mozliwe)
     try {
+        ///acuumulate zwraca wynik funkcji wykonanej na wszystkich elementach kolekcji, w tym wypadku
+        //jest to iloczyn elementow tablicy size, argument 1 to wartosc poczatkowa
+        m_totalNumberOfPixels = std::accumulate(size, size+VImageDimension, 1, std::multiplies<int>());
         std::copy (size, size+VImageDimension, m_size.m_Size);
         std::copy (spacing, spacing+VImageDimension, m_spacing.Begin());
         std::copy (origin, origin+VImageDimension, m_origin.Begin());
-        //do ponizszego potrzeba iteratora, a indeks nim nie jest, chyba mozna go
-        //utworzyc z klasy itk::ImageIteratorWithIndex<TImage>
-        //TODO wyzerowac recznie
-        //std::fill (m_start, m_start[VImageDimension], 0);
         m_start.Fill (0);
     }
+    ///NOTE itk::ExceptionObject dziedziczy po std::exception, nie ma potrzeby go dolaczac!
     catch (std::exception &e) {
         std::cerr << "Nie moge skopiowac! Blad!\n";
         throw;
@@ -133,3 +140,4 @@ bartImportFilter<TPixel, VImageDimension>
     itk::Point<double, VImageDimension> m_origin;
     */
 
+#endif

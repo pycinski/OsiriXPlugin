@@ -11,6 +11,8 @@
 		8D5B49AE048680CD000E48DA /* bart4_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF630370AF2F00C91783 /* bart4_Prefix.pch */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		98794BD4146DC96E0069F9D1 /* importFilterWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 98794BD2146DC96E0069F9D1 /* importFilterWrapper.h */; };
+		98794BD5146DC96E0069F9D1 /* importFilterWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 98794BD3146DC96E0069F9D1 /* importFilterWrapper.m */; };
 		98F599211468075C0090459C /* bartImportFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F5991F1468075C0090459C /* bartImportFilter.cpp */; };
 		98F599221468075C0090459C /* bartImportFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F599201468075C0090459C /* bartImportFilter.h */; };
 		ABA48A650680BB600089EB4F /* bart4Filter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA48A640680BB600089EB4F /* bart4Filter.h */; };
@@ -25,6 +27,8 @@
 		32DBCF630370AF2F00C91783 /* bart4_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bart4_Prefix.pch; sourceTree = "<group>"; };
 		8420023112E829A200E1E9CE /* OsiriXAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OsiriXAPI.framework; sourceTree = "<group>"; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98794BD2146DC96E0069F9D1 /* importFilterWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = importFilterWrapper.h; sourceTree = "<group>"; };
+		98794BD3146DC96E0069F9D1 /* importFilterWrapper.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = importFilterWrapper.m; sourceTree = "<group>"; };
 		98F5991F1468075C0090459C /* bartImportFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bartImportFilter.cpp; sourceTree = "<group>"; };
 		98F599201468075C0090459C /* bartImportFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = bartImportFilter.h; sourceTree = "<group>"; };
 		AB5D36050680E57E00F4007A /* bart4.osirixplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bart4.osirixplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,8 @@
 		AB2C26750677B0C400A08910 /* bart4Filter */ = {
 			isa = PBXGroup;
 			children = (
+				98794BD2146DC96E0069F9D1 /* importFilterWrapper.h */,
+				98794BD3146DC96E0069F9D1 /* importFilterWrapper.m */,
 				ABA48A640680BB600089EB4F /* bart4Filter.h */,
 				ABA48A660680BB690089EB4F /* bart4Filter.m */,
 				98F5991F1468075C0090459C /* bartImportFilter.cpp */,
@@ -138,6 +144,7 @@
 				8D5B49AE048680CD000E48DA /* bart4_Prefix.pch in Headers */,
 				ABA48A650680BB600089EB4F /* bart4Filter.h in Headers */,
 				98F599221468075C0090459C /* bartImportFilter.h in Headers */,
+				98794BD4146DC96E0069F9D1 /* importFilterWrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +223,7 @@
 			files = (
 				ABA48A670680BB690089EB4F /* bart4Filter.m in Sources */,
 				98F599211468075C0090459C /* bartImportFilter.cpp in Sources */,
+				98794BD5146DC96E0069F9D1 /* importFilterWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

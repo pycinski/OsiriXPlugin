@@ -21,13 +21,11 @@
 
 
 #include "bartImportFilter.h"
-
+#import "importFilterWrapper.h"
 
 @implementation bart4Filter
 
-- (void) initPlugin
-{
-}
+
 
 - (long) filterImage:(NSString*) menuName
 {
@@ -84,12 +82,15 @@
     //importFilter->SetSpacing(voxelSpacing);
     //importFilter->SetImportPointer([viewerController volumePtr], bufferSize, false);
     
+    //importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
+    //[wrapper getDataFromViewer];
     importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
-    int lowerThreshold = 60;
-    int upperThreshold = 1000;
+    int lowerThreshold = -200;
+    int upperThreshold = 300;
     
     BinaryThresholdImageFilterType::Pointer thresholdFilter = BinaryThresholdImageFilterType::New();
     thresholdFilter->SetInput (importFilter->GetOutput());
+    //thresholdFilter->SetInput ([wrapper GetOutput]);
     thresholdFilter->SetLowerThreshold(lowerThreshold);
     thresholdFilter->SetUpperThreshold(upperThreshold);
     thresholdFilter->SetInsideValue(1000);
@@ -99,6 +100,7 @@
     
     float* resultBuff = thresholdFilter->GetOutput()->GetBufferPointer();
     
+    //long mem = [wrapper GetSize] * sizeof(float);
     long mem = bufferSize * sizeof(float);
     memcpy ([viewerController volumePtr], resultBuff, mem);
     
