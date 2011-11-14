@@ -35,12 +35,14 @@
     typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
     
     typedef itk::BinaryThresholdImageFilter<ImageType, ImageType> BinaryThresholdImageFilterType;
+    ImportFilterType::Pointer importFilter = ImportFilterType::New();
+    
+    
     
     DCMPix  *firstPix =[ [viewerController pixList] objectAtIndex:0 ];
     int slices = [[viewerController pixList] count];
-    long bufferSize;
     
-    ImportFilterType::Pointer importFilter = ImportFilterType::New();
+    long bufferSize;
     int size [3];
     //ImportFilterType::IndexType start;
     //ImportFilterType::RegionType region;
@@ -85,9 +87,22 @@
     //importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
     //[wrapper getDataFromViewer];
     importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
+
+
+    /*importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
+    
+    
+    int sizee = [wrapper GetSize];
+    NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"xxx%@yyy%d",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
+    
+    [wrapper getDataFromViewer];
+    
+    NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"XXX%@YYY%dZZZ",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
+    
+    */
+    
     int lowerThreshold = -200;
     int upperThreshold = 300;
-    
     BinaryThresholdImageFilterType::Pointer thresholdFilter = BinaryThresholdImageFilterType::New();
     thresholdFilter->SetInput (importFilter->GetOutput());
     //thresholdFilter->SetInput ([wrapper GetOutput]);
@@ -95,8 +110,8 @@
     thresholdFilter->SetUpperThreshold(upperThreshold);
     thresholdFilter->SetInsideValue(1000);
     thresholdFilter->SetOutsideValue(0);
-    
     thresholdFilter->Update();
+
     
     float* resultBuff = thresholdFilter->GetOutput()->GetBufferPointer();
     
