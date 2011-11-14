@@ -26,6 +26,14 @@
 @implementation bart4Filter
 
 
+- (void) initPlugin
+{
+    int a;
+    a=4;
+    int b = 2*a;
+    a=b;         
+}
+
 
 - (long) filterImage:(NSString*) menuName
 {
@@ -86,26 +94,27 @@
     
     //importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
     //[wrapper getDataFromViewer];
-    importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
+    //importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
 
 
-    /*importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
+    importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
     
     
     int sizee = [wrapper GetSize];
+    
     NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"xxx%@yyy%d",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     
     [wrapper getDataFromViewer];
     
     NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"XXX%@YYY%dZZZ",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     
-    */
+    
     
     int lowerThreshold = -200;
     int upperThreshold = 300;
     BinaryThresholdImageFilterType::Pointer thresholdFilter = BinaryThresholdImageFilterType::New();
-    thresholdFilter->SetInput (importFilter->GetOutput());
-    //thresholdFilter->SetInput ([wrapper GetOutput]);
+    //thresholdFilter->SetInput (importFilter->GetOutput());
+    thresholdFilter->SetInput ([wrapper GetOutput]);
     thresholdFilter->SetLowerThreshold(lowerThreshold);
     thresholdFilter->SetUpperThreshold(upperThreshold);
     thresholdFilter->SetInsideValue(1000);
