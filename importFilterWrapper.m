@@ -13,11 +13,22 @@
 
 @implementation importFilterWrapper
 
--(importFilterWrapper*) initWithViewerController: (ViewerController*) vc 
+   //TODO destruktor
+-(importFilterWrapper*) initWithViewerController: (ViewerController*) vc
 {
-    self = [super init];
-    viewerController = vc;
-    return self;
+    if ((self = [super init])) {
+        viewerController = vc;
+        totalSize = 0;
+        importFilter  = bartImportFilter<myPixelType, 3>::New();
+        [self getDataFromViewer];
+        return self;
+    }
+    else    {
+        //TODO: obsluga bledu
+        return 0;
+    }
+            
+
 }
 
 -(long) GetSize

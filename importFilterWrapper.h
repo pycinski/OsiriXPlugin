@@ -12,7 +12,7 @@
 #include <itkObject.h>
 #include <itkImage.h>
 #include "bartImportFilter.h"
-typedef float itkPixelType;
+typedef float myPixelType;
 //typedef itk::Image <itkPixelType, 3> ImageType;
 //typedef itk::ImportImageFilter <itkPixelType, 3> ImportFilterType;
 //typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
@@ -21,10 +21,13 @@ typedef float itkPixelType;
 @interface importFilterWrapper : NSObject {
 @private
     ViewerController* viewerController;
-    bartImportFilter<itkPixelType,3>::Pointer importFilter;
+    bartImportFilter<myPixelType,3>::Pointer importFilter;
     long totalSize;
 }
+
+
 -(importFilterWrapper*) initWithViewerController: (ViewerController*) vc;
+//TODO: to moze powinna byc prywatna funkcja, wywolywana przez konstruktor?
 -(void) getDataFromViewer;
 -(itk::Image<float,3>*) GetOutput;
 -(long) GetSize;

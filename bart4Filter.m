@@ -6,7 +6,7 @@
 //
 
 #import "bart4Filter.h"
-#include <itkImage.h>
+//#include <itkImage.h>
 //#include <itkImageFileReader.h>
 //#include <itkImageFileWriter.h>
 #include <itkImportImageFilter.h>
@@ -40,10 +40,10 @@
 	typedef float itkPixelType;
     typedef itk::Image <itkPixelType, 3> ImageType;
     //typedef itk::ImportImageFilter <itkPixelType, 3> ImportFilterType;
-    typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
+    //typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
     
     typedef itk::BinaryThresholdImageFilter<ImageType, ImageType> BinaryThresholdImageFilterType;
-    ImportFilterType::Pointer importFilter = ImportFilterType::New();
+    //ImportFilterType::Pointer importFilter = ImportFilterType::New();
     
     
     
@@ -100,13 +100,13 @@
     importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
     
     
-    int sizee = [wrapper GetSize];  //to zwraca 0 jesli wczesniej sie nie wywola getDataFromViewer
+    //int sizee = [wrapper GetSize];  //to zwraca 0 jesli wczesniej sie nie wywola getDataFromViewer
     
     //NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"xxx%@yyy%d",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     
-    [wrapper getDataFromViewer]; 
+    //[wrapper getDataFromViewer];
     
-    NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"XXX%@YYY%dZZZ",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
+    //NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"XXX%@YYY%dZZZ",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     
     
     
