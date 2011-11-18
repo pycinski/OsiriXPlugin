@@ -11,9 +11,9 @@
 #import "OsiriXApi/ViewerController.h"
 #include <itkObject.h>
 #include <itkImage.h>
-#include <bartImportFilter.h>
+#include "bartImportFilter.h"
 typedef float itkPixelType;
-typedef itk::Image <itkPixelType, 3> ImageType;
+//typedef itk::Image <itkPixelType, 3> ImageType;
 //typedef itk::ImportImageFilter <itkPixelType, 3> ImportFilterType;
 //typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
 

@@ -100,11 +100,11 @@
     importFilterWrapper* wrapper = [[importFilterWrapper alloc] initWithViewerController: viewerController];
     
     
-    int sizee = [wrapper GetSize];
+    int sizee = [wrapper GetSize];  //to zwraca 0 jesli wczesniej sie nie wywola getDataFromViewer
     
-    NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"xxx%@yyy%d",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
+    //NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"xxx%@yyy%d",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     
-    [wrapper getDataFromViewer];
+    [wrapper getDataFromViewer]; 
     
     NSRunInformationalAlertPanel(@"Informacja",[NSString stringWithFormat:@"XXX%@YYY%dZZZ",@"po pobraniu rozmiaru",sizee], @"OK", 0L, 0L);
     

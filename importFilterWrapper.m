@@ -59,7 +59,7 @@
     voxelSpacing[1] = [firstPix pixelSpacingY];
     voxelSpacing[2] = [firstPix sliceInterval];
 
-    //importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
+    importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
                                       
                                       
     
