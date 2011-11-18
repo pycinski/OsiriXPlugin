@@ -18,7 +18,7 @@
 {
     if ((self = [super init])) {
         viewerController = vc;
-        totalSize = 0;
+        size[0] = size[1] = size[2] = 0;
         importFilter  = bartImportFilter<myPixelType, 3>::New();
         [self getDataFromViewer];
         return self;
@@ -31,9 +31,9 @@
 
 }
 
--(long) GetSize
+-(int*) GetSize
 {
-    return totalSize;
+    return size;
 }
 -(void) getDataFromViewer
 {
@@ -42,13 +42,11 @@
     DCMPix  *firstPix =[ [viewerController pixList] objectAtIndex:0 ];
     int slices = [[viewerController pixList] count];
     
-    int size [3];
+    
     size[0] = [firstPix pwidth];
     size[1] = [firstPix pheight];
     size[2] = slices;
   
-    totalSize = size[0]*size[1]*size[2];
-    
     float origin[3];
     float originConverted [3];
     double vectorOriginal [9];
@@ -72,9 +70,12 @@
 
     importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
                                       
-                                      
-    
 }
+-(void) Update {
+    return importFilter->Update();
+}
+
+//TODO chyba inny typ zwracany ?
 -(itk::Image<float,3>*) GetOutput
 {
     return importFilter->GetOutput();

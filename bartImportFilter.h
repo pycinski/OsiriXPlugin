@@ -10,6 +10,8 @@
 #include <itkImportImageFilter.h>
 #include <itkImage.h>
 
+
+//TODO: komentarze w calym tym pliku
 template <typename TPixel, unsigned int VImageDimension=2>
 class bartImportFilter : public itk::ImportImageFilter< TPixel, VImageDimension > {
     
@@ -105,7 +107,7 @@ void bartImportFilter<TPixel, VImageDimension>
     
     
     this->SetImportPointer (m_pixelData, m_totalNumberOfPixels, m_deleteImportBuffer);
-    this->Update();
+    //this->Update();
     return;
     
 }

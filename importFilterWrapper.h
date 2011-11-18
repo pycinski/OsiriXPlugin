@@ -17,18 +17,37 @@ typedef float myPixelType;
 //typedef itk::ImportImageFilter <itkPixelType, 3> ImportFilterType;
 //typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
 
-
+/** Klasa - wrapper opakowujaca importImageFilter w interfejs Objective-C
+ * \TODO dokonczyc
+ */
 @interface importFilterWrapper : NSObject {
 @private
+    /** Kontroler okna OsiriXa, ustawiany w konstruktorze */
     ViewerController* viewerController;
+    /** Filtr importujacy jako podklasa itk::importImageFilter */
     bartImportFilter<myPixelType,3>::Pointer importFilter;
-    long totalSize;
+    /** Rozmar wczytanego obrazu. Potrzebny do zwaracania wtyczce by wiedziala jaki obszar ma skopiowac
+     * \NOTE moze nie bedzie potrzebny, jak rozbuduje wrapper o zapis z powrotem
+     */
+    int size [3];
 }
 
-
+/** Konstruktor. Od razu ustawua wskaznik viewerController. */
 -(importFilterWrapper*) initWithViewerController: (ViewerController*) vc;
-//TODO: to moze powinna byc prywatna funkcja, wywolywana przez konstruktor?
+//TODO: Ustawic jako prywatna funkcja
+//TODO: zmienic nazwe na np SetParameters
+/** Funkcja wykonujaca cala "brudna robote". Moze nie byc calkowicie uniwersalna, trzeba duzo potestowac. */
 -(void) getDataFromViewer;
+/** Wywoluje funkcje GetOutput() importFiltera.
+ \return Wskaznik na obraz w wyswietlaczu.
+ \TODO zmiana typu return na bardziej ogolna?
+ */
 -(itk::Image<float,3>*) GetOutput;
--(long) GetSize;
+/** Zwraca rozmiar wczytanego woluminu w pikselach jako 3-wymiarowa tablica
+ * \return 3-wymiarowa tablica z iloscia pikseli w poszczegolnych wymiarach
+ * \see size
+ */
+-(int*) GetSize;
+/** Wywoluje funkcje Update() importFiltera */
+-(void) Update;
 @end
