@@ -32,26 +32,27 @@
     //[wrapper Update];   //nie potrzeba, zostanie niejawnie wywolane przez Update ostaniego elemntu potoku
 
     
-    int lowerThreshold = -200;
-    int upperThreshold = 300;
+    int lowerThreshold = 120;
+    int upperThreshold = 250;
     BinaryThresholdImageFilterType::Pointer thresholdFilter = BinaryThresholdImageFilterType::New();
    
     thresholdFilter->SetInput ([wrapper GetOutput]);
     thresholdFilter->SetLowerThreshold(lowerThreshold);
     thresholdFilter->SetUpperThreshold(upperThreshold);
     thresholdFilter->SetInsideValue(1000);
-    thresholdFilter->SetOutsideValue(0);
+    thresholdFilter->SetOutsideValue(-1000);
     //Ostatni element potoku koniecznie powinien wywolac Update() !
     thresholdFilter->Update();
 
-    //TODO jakis drugi wrapper zapisujacy w druga strone
-    float* resultBuff = thresholdFilter->GetOutput()->GetBufferPointer();
-    int* pixelSize = [wrapper GetSize];
-    //ponizszy wiersz to iloczyn sizeof(float)*size[0]*size[1]*size[2]
-    int bufferSize = std::accumulate(pixelSize, pixelSize+3, sizeof(float), std::multiplies<int>()); 
-    memcpy ([viewerController volumePtr], resultBuff, bufferSize);
+    [wrapper DisplayImage: thresholdFilter->GetOutput()];
+
+//    float* resultBuff = thresholdFilter->GetOutput()->GetBufferPointer();
+//    int* pixelSize = [wrapper GetSize];
+//    //ponizszy wiersz to iloczyn sizeof(float)*size[0]*size[1]*size[2]
+//    int bufferSize = std::accumulate(pixelSize, pixelSize+3, sizeof(float), std::multiplies<int>());
+//    memcpy ([viewerController volumePtr], resultBuff, bufferSize);
     
-    [viewerController needsDisplayUpdate];
+    //[viewerController needsDisplayUpdate];
     
     //NSRunInformationalAlertPanel(@"Informacja", @"Zakonczono obrobke obrazu", @"OK", 0L, 0L);
     

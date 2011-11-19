@@ -18,7 +18,7 @@ typedef float myPixelType;
 //typedef bartImportFilter <itkPixelType, 3> ImportFilterType;
 
 /** Klasa - wrapper opakowujaca importImageFilter w interfejs Objective-C
- * \TODO dokonczyc
+ * \TODO dokonczyc cala klase
  */
 @interface importFilterWrapper : NSObject {
 @private
@@ -34,10 +34,18 @@ typedef float myPixelType;
 
 /** Konstruktor. Od razu ustawua wskaznik viewerController. */
 -(importFilterWrapper*) initWithViewerController: (ViewerController*) vc;
-//TODO: Ustawic jako prywatna funkcja
-//TODO: zmienic nazwe na np SetParameters
-/** Funkcja wykonujaca cala "brudna robote". Moze nie byc calkowicie uniwersalna, trzeba duzo potestowac. */
--(void) getDataFromViewer;
+/** Funkcja wykonujaca cala "brudna robote". Moze nie byc calkowicie uniwersalna, trzeba duzo potestowac.
+ * \NOTE Nie wywolywac tej funkcji spoza klasy, jest to prywatna metoda klasy
+ */
+//NOTE: zakomentowanie deklaracji w bloku @interface i pozostawienie w @implementation powoduje,
+// ze metoda bedzie prywatna (jedyne zastrzezenie, ze mozna jej uzywac dopiero ponizej implementacji
+// w kodzie programu
+//-(void)GetViewerParameters;
+
+/** Funkcja odpowiedzialna za zamiane z powrotem obrazu ITK-owego w OsiriXowy.
+ */
+-(void)DisplayImage  : (itk::Image<float,3>*) lastFilterOutput;
+
 /** Wywoluje funkcje GetOutput() importFiltera.
  \return Wskaznik na obraz w wyswietlaczu.
  \TODO zmiana typu return na bardziej ogolna?

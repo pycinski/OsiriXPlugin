@@ -45,7 +45,7 @@ protected:
     /** Konstruktor domyslny. Oznaczony jako protected, jedynie wywoluje konstruktora klasy bazowej */
     bartImportFilter();
     /** Desktruktor. Nie wykonuje zadnych operacji, niejawnie wywoluje desktruktora klasy nadrzednej */
-    ~bartImportFilter();
+    virtual ~bartImportFilter();
     
 private:
     /** Celowo zablokowany konstruktor kopiujacy */
