@@ -37,6 +37,9 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Development">
+      <PathRunnable
+         FilePath = "/Applications/Utilities/osirix/osirix/build/Development/OsiriX.app">
+      </PathRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
