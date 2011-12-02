@@ -13,29 +13,28 @@ exit 1
 fi
 
 new=$2
+OLDDIR="`pwd`"
+echo $1 $2 $OLDDIR
 
+cd "$1"
 
 echo "Modifying Utiltlites/CMakeList.sys file, changing systems namespace"
-sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "$1/Utilities/CMakeLists.txt" > "$1/Utilities/CMakeLists.txt.sed"
-test -s "$1/Utilities/CMakeLists.txt.sed" && (cmp -s "$1/Utilities/CMakeLists.txt.sed" "$1/Utilities/CMakeLists.txt" || mv -f "$1/Utilities/CMakeLists.txt.sed" "$1/Utilities/CMakeLists.txt")
-echo "done\n"
+sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "./Utilities/CMakeLists.txt" > "./Utilities/CMakeLists.txt.sed"
+test -s "./Utilities/CMakeLists.txt.sed" && (cmp -s "./Utilities/CMakeLists.txt.sed" "./Utilities/CMakeLists.txt" || mv -f "./Utilities/CMakeLists.txt.sed" "./Utilities/CMakeLists.txt")
 
-echo "Modifying Code/IO/CMakeLists.txt, deavtivating test driver"
-cp "$1/Code/IO/CMakeLists.txt" "$1/Code/CMakeLists.txt.original"
-sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' \
-	"$1/Code/IO/CMakeLists.txt" > "$1/Code/IO/CMakeLists.txt.sed" 
-test -s "$1/Code/IO/CMakeLists.txt.sed" && (cmp -s "$1/Code/IO/CMakeLists.txt.sed" "$1/Code/IO/CMakeLists.txt" || mv -f "$1/Code/IO/CMakeLists.txt.sed" "$1/Code/IO/CMakeLists.txt")	
-echo "done"
+echo "Modifying Code/IO/CMakeLists.txt, deavticating test driver"
+cp "./Code/IO/CMakeLists.txt" "./Code/CMakeLists.txt.original"
+sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' "./Code/IO/CMakeLists.txt" > "./Code/IO/CMakeLists.txt.sed" 
+test -s "./Code/IO/CMakeLists.txt.sed" && (cmp -s "./Code/IO/CMakeLists.txt.sed" "./Code/IO/CMakeLists.txt" || mv -f "./Code/IO/CMakeLists.txt.sed" "./Code/IO/CMakeLists.txt")	
 
+FILELIST=`find .  \( -path './Testing' -prune  -o  -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx" \)  -print`
+# 
 
-FILELIST=`find $1 \( -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx"  \) -print`
-
-#echo "$FILELIST" | sort --unique >output
-#echo "$FILELIST" | sort >output2
-echo "$FILELIST"
+#echo "$FILELIST" 
 
 for i in $FILELIST; do
-    echo "Changing $i ..."
+#    echo "Changing $i ..."
+if [ $i != ./Testing ] ; then 
 sed    \
 -e "s/^itk[[:space:]]*::/$new::/" \
 -e "s/\([^[:alnum:]_]\)itk[[:space:]]*::/\1${new}::/g" \
@@ -51,10 +50,11 @@ sed    \
     #grep ib_ib_itk "$i.sed"
 	test -s "$i.sed" &&  (cmp -s "$i.sed" "$i" || mv -f "$i.sed" "$i")
 	rm -f "$i.sed"
-    echo "done\n"
+#    echo "done"
+fi
 done
 
-
+cd "$OLDDIR"
 
 #new=ib_itk
 #new=itk_ib
