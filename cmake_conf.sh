@@ -14,7 +14,7 @@
 
 
 CMAKE="/Applications/CMake 2.8-6.app/Contents/bin/cmake"
-"$CMAKE" -G Xcode \
+"$CMAKE" --quiet -G Xcode \
 -DBUILD_EXAMPLES:BOOL=OFF \
 -DBUILD_TESTING:BOOL=OFF \
 -DITK_USE_PATENTED:BOOL=ON \
@@ -23,9 +23,5 @@ CMAKE="/Applications/CMake 2.8-6.app/Contents/bin/cmake"
 -DCMAKE_BUILD_TYPE:STRING=Debug \
 .
 #-DCMAKE_OSX_ARCHITECTURES:STRING=i386,x86_64
-
-
-
-xcodebuild -project ITK.xcodeproj -target ALL_BUILD -arch i386 GCC_SYMBOLS_PRIVATE_EXTERN=YES
-
+#-Q -- quiet
 
