@@ -2,31 +2,46 @@
 #script for renaming the ikt namespace
 
 
+#Czy dobra ilosc parametrow?
 if [ $# != 2 ] ; then
 echo "Podaj parametry: skrypt ITK_DIR NAMESPACE"
 exit 1
 fi
 
+#Czy pierwszy parametr to istniejacy katalog?
+if [ ! -d "$1" ]
+then
+echo Katalog $1 nie istnieje. Podaj poprawne parametry:
+echo "skrypt ITK_DIR NAMESPACE"
+exit 1
+fi
+
 new=$2
-OLDDIR="`pwd`"
 echo "ITK_DIR: $1 NAMESPACE: $2"
 
-cd "$1"
+#przejdz do nowego katalogu i zapamiatej dotychczasowy #(a moze pushd?)
+#OLDDIR="`pwd`"
+#cd "$1"
+pushd . >/dev/null
 
-#echo "Modifying Utiltlites/CMakeList.sys file, changing systems namespace"
-sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "./Utilities/CMakeLists.txt" > "./Utilities/CMakeLists.txt.sed"
-test -s "./Utilities/CMakeLists.txt.sed" && (cmp -s "./Utilities/CMakeLists.txt.sed" "./Utilities/CMakeLists.txt" || mv -f "./Utilities/CMakeLists.txt.sed" "./Utilities/CMakeLists.txt")
+#Modifying Utiltlites/CMakeList.sys file, changing systems namespace
+cd Utilities
+sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "CMakeLists.txt" > "CMakeLists.txt.sed"
+test -s "CMakeLists.txt.sed" && (cmp -s "CMakeLists.txt.sed" "CMakeLists.txt" || mv -f "CMakeLists.txt.sed" "CMakeLists.txt")
+rm -f "CMakeLists.txt.sed"
+cd ..
 
-#echo "Modifying Code/IO/CMakeLists.txt, deavticating test driver"
-cp "./Code/IO/CMakeLists.txt" "./Code/CMakeLists.txt.original"
-sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' "./Code/IO/CMakeLists.txt" > "./Code/IO/CMakeLists.txt.sed" 
-test -s "./Code/IO/CMakeLists.txt.sed" && (cmp -s "./Code/IO/CMakeLists.txt.sed" "./Code/IO/CMakeLists.txt" || mv -f "./Code/IO/CMakeLists.txt.sed" "./Code/IO/CMakeLists.txt")	
+#Modifying Code/IO/CMakeLists.txt, deavticating test driver
+cd Code/IO
+cp "CMakeLists.txt" "CMakeLists.txt.original"
+sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' "CMakeLists.txt" > "CMakeLists.txt.sed" 
+test -s "CMakeLists.txt.sed" && (cmp -s "CMakeLists.txt.sed" "CMakeLists.txt" || mv -f "CMakeLists.txt.sed" "CMakeLists.txt")	
+rm -f "CMakeLists.txt.sed "
+cd ..
 
 FILELIST=`find .  \( -path './Testing' -prune  -o  -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx" \)  -print`
 
-
 for i in $FILELIST; do
-#    echo -n "Changing $i ..."
 if [ $i != ./Testing ] ; then 
   sed    \
     -e "s/^itk[[:space:]]*::/$new::/" \
@@ -37,9 +52,9 @@ if [ $i != ./Testing ] ; then
 
   test -s "$i.sed" &&  (cmp -s "$i.sed" "$i" || mv -f "$i.sed" "$i")
   rm -f "$i.sed"
-#    echo "done"
 fi
 done
 
-cd "$OLDDIR"
+#cd "$OLDDIR"
+popd >/dev/null
 
