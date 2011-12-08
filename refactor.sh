@@ -9,6 +9,7 @@ exit 1
 fi
 
 #Czy pierwszy parametr to istniejacy katalog?
+#TODO sprawdz czy zawiera jakis plik identyfikujacy ze to jest dobry katalog
 if [ ! -d "$1" ]
 then
 echo Katalog $1 nie istnieje. Podaj poprawne parametry:
@@ -21,8 +22,8 @@ echo "ITK_DIR: $1 NAMESPACE: $2"
 
 #przejdz do nowego katalogu i zapamiatej dotychczasowy #(a moze pushd?)
 #OLDDIR="`pwd`"
-#cd "$1"
 pushd . >/dev/null
+cd "$1"
 
 #Modifying Utiltlites/CMakeList.sys file, changing systems namespace
 cd Utilities
@@ -37,7 +38,7 @@ cp "CMakeLists.txt" "CMakeLists.txt.original"
 sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' "CMakeLists.txt" > "CMakeLists.txt.sed" 
 test -s "CMakeLists.txt.sed" && (cmp -s "CMakeLists.txt.sed" "CMakeLists.txt" || mv -f "CMakeLists.txt.sed" "CMakeLists.txt")	
 rm -f "CMakeLists.txt.sed "
-cd ..
+cd ../..
 
 FILELIST=`find .  \( -path './Testing' -prune  -o  -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx" \)  -print`
 
