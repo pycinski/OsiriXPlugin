@@ -1,80 +1,61 @@
 #!/bin/sh
 #script for renaming the ikt namespace
 
-#echo $1
-#echo $2
 
-#if [ "$1" == "" ]; then echo "Usage: refactor_namespace.sh ITK_DIR NEW_NAMESPACE" && exit 1
-#fi
-
+#Czy dobra ilosc parametrow?
 if [ $# != 2 ] ; then
 echo "Podaj parametry: skrypt ITK_DIR NAMESPACE"
 exit 1
 fi
 
+#Czy pierwszy parametr to istniejacy katalog?
+#TODO sprawdz czy zawiera jakis plik identyfikujacy ze to jest dobry katalog
+if [ ! -d "$1" ]
+then
+echo Katalog $1 nie istnieje. Podaj poprawne parametry:
+echo "skrypt ITK_DIR NAMESPACE"
+exit 1
+fi
+
 new=$2
+echo "ITK_DIR: $1 NAMESPACE: $2"
 
+#przejdz do nowego katalogu i zapamiatej dotychczasowy #(a moze pushd?)
+#OLDDIR="`pwd`"
+pushd . >/dev/null
+cd "$1"
 
-echo "Modifying Utiltlites/CMakeList.sys file, changing systems namespace"
-sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "$1/Utilities/CMakeLists.txt" > "$1/Utilities/CMakeLists.txt.sed"
-test -s "$1/Utilities/CMakeLists.txt.sed" && (cmp -s "$1/Utilities/CMakeLists.txt.sed" "$1/Utilities/CMakeLists.txt" || mv -f "$1/Utilities/CMakeLists.txt.sed" "$1/Utilities/CMakeLists.txt")
-echo "done\n"
+#Modifying Utiltlites/CMakeList.sys file, changing systems namespace
+cd Utilities
+sed -e "s/SET(KWSYS_NAMESPACE itksys)/SET(KWSYS_NAMESPACE ${new}sys)/g" "CMakeLists.txt" > "CMakeLists.txt.sed"
+test -s "CMakeLists.txt.sed" && (cmp -s "CMakeLists.txt.sed" "CMakeLists.txt" || mv -f "CMakeLists.txt.sed" "CMakeLists.txt")
+rm -f "CMakeLists.txt.sed"
+cd ..
 
-echo "Modifying Code/IO/CMakeLists.txt, deavtivating test driver"
-cp "$1/Code/IO/CMakeLists.txt" "$1/Code/CMakeLists.txt.original"
-sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' \
-	"$1/Code/IO/CMakeLists.txt" > "$1/Code/IO/CMakeLists.txt.sed" 
-test -s "$1/Code/IO/CMakeLists.txt.sed" && (cmp -s "$1/Code/IO/CMakeLists.txt.sed" "$1/Code/IO/CMakeLists.txt" || mv -f "$1/Code/IO/CMakeLists.txt.sed" "$1/Code/IO/CMakeLists.txt")	
-echo "done"
+#Modifying Code/IO/CMakeLists.txt, deavticating test driver
+cd Code/IO
+cp "CMakeLists.txt" "CMakeLists.txt.original"
+sed -e '/ADD_EXECUTABLE(itkTestDriver itkTestDriver.cxx)/,/CACHE INTERNAL \"itkTestDriver path to be used by subprojects\")/d' "CMakeLists.txt" > "CMakeLists.txt.sed" 
+test -s "CMakeLists.txt.sed" && (cmp -s "CMakeLists.txt.sed" "CMakeLists.txt" || mv -f "CMakeLists.txt.sed" "CMakeLists.txt")	
+rm -f "CMakeLists.txt.sed "
+cd ../..
 
-
-FILELIST=`find $1 \( -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx"  \) -print`
-
-#echo "$FILELIST" | sort --unique >output
-#echo "$FILELIST" | sort >output2
-echo "$FILELIST"
+FILELIST=`find .  \( -path './Testing' -prune  -o  -name "*.h" -o -name "*.txx" -o -name "*.cxx" -o -name "*.hxx" \)  -print`
 
 for i in $FILELIST; do
-    echo "Changing $i ..."
-sed    \
--e "s/^itk[[:space:]]*::/$new::/" \
--e "s/\([^[:alnum:]_]\)itk[[:space:]]*::/\1${new}::/g" \
--e "s/namespace[[:space:]][[:space:]]*itk/namespace ${new}/g"  \
--e "s/itksys/${new}sys/g" \
-           "$i" > "$i.sed"
-#    sed -e "s/\([^:]\)itksys/\1${NEWNAME}sys/g" \
-#        -e "s/namespace[ \t*]itk/namespace ${NEWNAME}/g" \
-#        -e "s/::itk\([^:]\)/::${NEWNAME}\1/g" \
-#        -e "s/\([^:]\)itk::/\1${NEWNAME}::/g" \
-#        -e "s/::itk::/::${NEWNAME}::/g" \
-    #cat "$i.sed" 
-    #grep ib_ib_itk "$i.sed"
-	test -s "$i.sed" &&  (cmp -s "$i.sed" "$i" || mv -f "$i.sed" "$i")
-	rm -f "$i.sed"
-    echo "done\n"
+if [ $i != ./Testing ] ; then 
+  sed    \
+    -e "s/^itk[[:space:]]*::/$new::/" \
+    -e "s/\([^[:alnum:]_]\)itk[[:space:]]*::/\1${new}::/g" \
+    -e "s/namespace[[:space:]][[:space:]]*itk/namespace ${new}/g"  \
+    -e "s/itksys/${new}sys/g" \
+    "$i" > "$i.sed"
+
+  test -s "$i.sed" &&  (cmp -s "$i.sed" "$i" || mv -f "$i.sed" "$i")
+  rm -f "$i.sed"
+fi
 done
 
+#cd "$OLDDIR"
+popd >/dev/null
 
-
-#new=ib_itk
-#new=itk_ib
-#new=XXX
-#sed    \
-#-e "s/^itk[[:space:]]*::/$new::/" \
-#-e "s/\([^[:alnum:]_]\)itk[[:space:]]*::/\1${new}::/" \
-#-e "s/namespace[[:space:]][[:space:]]*itk/namespace ${new}/g"  \
-#-e "s/itksys/${new}sys/g"
-
-
-
-
-#-e "s/\([^[:alnum:]_\:]\)\([[:space:]]+\)itk[[:space:]]*::/\1 ${new}::/" \
-#-e "s/\([[:alnum:]_]\)\([[:space:]]+\)itk[[:space:]]*::/\1 ${new}::/" \
-#-e "s/([[:alnum:]_])itk::/${new}/g" \
-#-e "s/::[[:space:]]*itksys[[:space:]]*::/::${new}::/g" \
-#-e "s/\([^:]\)itksys/\1${new}sys/g" \
-#-e "s/::itk\([^:]\)/::${new}\1/g" \
-#-e "s/\([^:]\)itk::/\1${new}::/g" \
-#-e "s/::itk::/::${new}::/g" 
-#-e "s/::[[:space:]]*itk[[:space:]]*::/::${new}::/" \
-#-e "s/:[[:space:]][[:space:]]*itk[[:space:]]*::/${new}::/" \

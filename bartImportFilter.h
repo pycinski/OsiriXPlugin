@@ -7,19 +7,19 @@
 //  Created by Bartlomiej Pycinski on 11-11-07.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
+#include "definicje.h"
 #include <itkImportImageFilter.h>
 #include <itkImage.h>
 
-
 //TODO: komentarze w calym tym pliku
 template <typename TPixel, unsigned int VImageDimension=2>
-class bartImportFilter : public itk::ImportImageFilter< TPixel, VImageDimension > {
+class bartImportFilter : public itkns::ImportImageFilter< TPixel, VImageDimension > {
     
 public:
     typedef bartImportFilter                                    Self;
-    typedef itk::ImportImageFilter<TPixel, VImageDimension>     Superclass;
-    typedef itk::SmartPointer<Self>                             Pointer;
-    typedef itk::SmartPointer<const Self>                       ConstPointer;
+    typedef itkns::ImportImageFilter<TPixel, VImageDimension>     Superclass;
+    typedef itkns::SmartPointer<Self>                             Pointer;
+    typedef itkns::SmartPointer<const Self>                       ConstPointer;
     
     typedef typename Superclass::SizeType SizeType;
     typedef typename Superclass::OriginType OriginType;
@@ -33,7 +33,7 @@ public:
     /** Tworzenie przez funkcje statyczna New() */
     itkNewMacro(Self);
     /** W celu zgodnosci z biblioteka */
-    itkTypeMacro(bartImportFilter, itk::ImportImageFilter);
+    itkTypeMacro(bartImportFilter, itkns::ImportImageFilter);
     
     /** Dodatkowa funkcja majaca ulatwic koncowemu uzytkownikowi rozwijanie wtyczki. 
      \note funkcja chyba powinna byc oznaczona jako virtual

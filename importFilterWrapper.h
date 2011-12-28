@@ -5,7 +5,7 @@
 //  Created by Bartlomiej Pycinski on 11-11-11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
-
+#include "definicje.h"
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "OsiriXApi/ViewerController.h"
@@ -44,13 +44,13 @@ typedef float myPixelType;
 
 /** Funkcja odpowiedzialna za zamiane z powrotem obrazu ITK-owego w OsiriXowy.
  */
--(void)DisplayImage  : (itk::Image<float,3>*) lastFilterOutput;
+-(void)DisplayImage  : (itkns::Image<float,3>*) lastFilterOutput;
 
 /** Wywoluje funkcje GetOutput() importFiltera.
  \return Wskaznik na obraz w wyswietlaczu.
  \TODO zmiana typu return na bardziej ogolna?
  */
--(itk::Image<float,3>*) GetOutput;
+-(itkns::Image<float,3>*) GetOutput;
 /** Zwraca rozmiar wczytanego woluminu w pikselach jako 3-wymiarowa tablica
  * \return 3-wymiarowa tablica z iloscia pikseli w poszczegolnych wymiarach
  * \see size

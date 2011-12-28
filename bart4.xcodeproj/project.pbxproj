@@ -11,8 +11,44 @@
 		8D5B49AE048680CD000E48DA /* bart4_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF630370AF2F00C91783 /* bart4_Prefix.pch */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		98525EEC1487ABBB00B55C44 /* definicje.h in Headers */ = {isa = PBXBuildFile; fileRef = 98525EEB1487ABBA00B55C44 /* definicje.h */; };
 		98794BD4146DC96E0069F9D1 /* importFilterWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 98794BD2146DC96E0069F9D1 /* importFilterWrapper.h */; };
 		98794BD5146DC96E0069F9D1 /* importFilterWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 98794BD3146DC96E0069F9D1 /* importFilterWrapper.m */; };
+		9885A561149F7B96005764ED /* bart4Controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 9885A55F149F7B96005764ED /* bart4Controller.h */; };
+		9885A562149F7B96005764ED /* bart4Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9885A560149F7B96005764ED /* bart4Controller.m */; };
+		9885A564149F7D5B005764ED /* bart4Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9885A563149F7D5B005764ED /* bart4Window.xib */; };
+		98A5D771149F433E009710BE /* itkmkg3states in Resources */ = {isa = PBXBuildFile; fileRef = 98A5D751149F433E009710BE /* itkmkg3states */; };
+		98A5D772149F433E009710BE /* libITKAlgorithms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D752149F433E009710BE /* libITKAlgorithms.a */; };
+		98A5D773149F433E009710BE /* libITKBasicFilters.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D753149F433E009710BE /* libITKBasicFilters.a */; };
+		98A5D774149F433E009710BE /* libITKCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D754149F433E009710BE /* libITKCommon.a */; };
+		98A5D775149F433E009710BE /* libITKDICOMParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D755149F433E009710BE /* libITKDICOMParser.a */; };
+		98A5D776149F433E009710BE /* libITKEXPAT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D756149F433E009710BE /* libITKEXPAT.a */; };
+		98A5D777149F433E009710BE /* libITKFEM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D757149F433E009710BE /* libITKFEM.a */; };
+		98A5D778149F433E009710BE /* libitkgdcm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D758149F433E009710BE /* libitkgdcm.a */; };
+		98A5D779149F433E009710BE /* libITKIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D759149F433E009710BE /* libITKIO.a */; };
+		98A5D77A149F433E009710BE /* libitkjpeg8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75A149F433E009710BE /* libitkjpeg8.a */; };
+		98A5D77B149F433E009710BE /* libitkjpeg12.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75B149F433E009710BE /* libitkjpeg12.a */; };
+		98A5D77C149F433E009710BE /* libitkjpeg16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75C149F433E009710BE /* libitkjpeg16.a */; };
+		98A5D77D149F433E009710BE /* libITKMetaIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75D149F433E009710BE /* libITKMetaIO.a */; };
+		98A5D77E149F433E009710BE /* libitkNetlibSlatec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75E149F433E009710BE /* libitkNetlibSlatec.a */; };
+		98A5D77F149F433E009710BE /* libITKniftiio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D75F149F433E009710BE /* libITKniftiio.a */; };
+		98A5D780149F433E009710BE /* libITKNrrdIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D760149F433E009710BE /* libITKNrrdIO.a */; };
+		98A5D781149F433E009710BE /* libITKNumerics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D761149F433E009710BE /* libITKNumerics.a */; };
+		98A5D782149F433E009710BE /* libitkopenjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D762149F433E009710BE /* libitkopenjpeg.a */; };
+		98A5D783149F433E009710BE /* libitkpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D763149F433E009710BE /* libitkpng.a */; };
+		98A5D784149F433E009710BE /* libITKSpatialObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D764149F433E009710BE /* libITKSpatialObject.a */; };
+		98A5D785149F433E009710BE /* libITKStatistics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D765149F433E009710BE /* libITKStatistics.a */; };
+		98A5D786149F433E009710BE /* libitktestlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D766149F433E009710BE /* libitktestlib.a */; };
+		98A5D787149F433E009710BE /* libitktiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D767149F433E009710BE /* libitktiff.a */; };
+		98A5D788149F433E009710BE /* libitkv3p_lsqr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D768149F433E009710BE /* libitkv3p_lsqr.a */; };
+		98A5D789149F433E009710BE /* libitkv3p_netlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D769149F433E009710BE /* libitkv3p_netlib.a */; };
+		98A5D78A149F433E009710BE /* libitkvcl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76A149F433E009710BE /* libitkvcl.a */; };
+		98A5D78B149F433E009710BE /* libitkvnl_algo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76B149F433E009710BE /* libitkvnl_algo.a */; };
+		98A5D78C149F433E009710BE /* libitkvnl_inst.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76C149F433E009710BE /* libitkvnl_inst.a */; };
+		98A5D78D149F433E009710BE /* libitkvnl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76D149F433E009710BE /* libitkvnl.a */; };
+		98A5D78E149F433E009710BE /* libitkzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76E149F433E009710BE /* libitkzlib.a */; };
+		98A5D78F149F433E009710BE /* libITKznz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D76F149F433E009710BE /* libITKznz.a */; };
+		98A5D790149F433E009710BE /* librefactored_itksys.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A5D770149F433E009710BE /* librefactored_itksys.a */; };
 		98F599211468075C0090459C /* bartImportFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F5991F1468075C0090459C /* bartImportFilter.cpp */; };
 		98F599221468075C0090459C /* bartImportFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 98F599201468075C0090459C /* bartImportFilter.h */; };
 		ABA48A650680BB600089EB4F /* bart4Filter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA48A640680BB600089EB4F /* bart4Filter.h */; };
@@ -27,8 +63,44 @@
 		32DBCF630370AF2F00C91783 /* bart4_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bart4_Prefix.pch; sourceTree = "<group>"; };
 		8420023112E829A200E1E9CE /* OsiriXAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OsiriXAPI.framework; sourceTree = "<group>"; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98525EEB1487ABBA00B55C44 /* definicje.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = definicje.h; sourceTree = "<group>"; };
 		98794BD2146DC96E0069F9D1 /* importFilterWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = importFilterWrapper.h; sourceTree = "<group>"; };
 		98794BD3146DC96E0069F9D1 /* importFilterWrapper.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = importFilterWrapper.m; sourceTree = "<group>"; };
+		9885A55F149F7B96005764ED /* bart4Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bart4Controller.h; sourceTree = "<group>"; };
+		9885A560149F7B96005764ED /* bart4Controller.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = bart4Controller.m; sourceTree = "<group>"; };
+		9885A563149F7D5B005764ED /* bart4Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bart4Window.xib; sourceTree = "<group>"; };
+		98A5D751149F433E009710BE /* itkmkg3states */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = itkmkg3states; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/itkmkg3states; sourceTree = "<group>"; };
+		98A5D752149F433E009710BE /* libITKAlgorithms.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKAlgorithms.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKAlgorithms.a; sourceTree = "<group>"; };
+		98A5D753149F433E009710BE /* libITKBasicFilters.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKBasicFilters.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKBasicFilters.a; sourceTree = "<group>"; };
+		98A5D754149F433E009710BE /* libITKCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKCommon.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKCommon.a; sourceTree = "<group>"; };
+		98A5D755149F433E009710BE /* libITKDICOMParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKDICOMParser.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKDICOMParser.a; sourceTree = "<group>"; };
+		98A5D756149F433E009710BE /* libITKEXPAT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKEXPAT.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKEXPAT.a; sourceTree = "<group>"; };
+		98A5D757149F433E009710BE /* libITKFEM.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKFEM.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKFEM.a; sourceTree = "<group>"; };
+		98A5D758149F433E009710BE /* libitkgdcm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkgdcm.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkgdcm.a; sourceTree = "<group>"; };
+		98A5D759149F433E009710BE /* libITKIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKIO.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKIO.a; sourceTree = "<group>"; };
+		98A5D75A149F433E009710BE /* libitkjpeg8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkjpeg8.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkjpeg8.a; sourceTree = "<group>"; };
+		98A5D75B149F433E009710BE /* libitkjpeg12.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkjpeg12.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkjpeg12.a; sourceTree = "<group>"; };
+		98A5D75C149F433E009710BE /* libitkjpeg16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkjpeg16.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkjpeg16.a; sourceTree = "<group>"; };
+		98A5D75D149F433E009710BE /* libITKMetaIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKMetaIO.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKMetaIO.a; sourceTree = "<group>"; };
+		98A5D75E149F433E009710BE /* libitkNetlibSlatec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkNetlibSlatec.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkNetlibSlatec.a; sourceTree = "<group>"; };
+		98A5D75F149F433E009710BE /* libITKniftiio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKniftiio.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKniftiio.a; sourceTree = "<group>"; };
+		98A5D760149F433E009710BE /* libITKNrrdIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKNrrdIO.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKNrrdIO.a; sourceTree = "<group>"; };
+		98A5D761149F433E009710BE /* libITKNumerics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKNumerics.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKNumerics.a; sourceTree = "<group>"; };
+		98A5D762149F433E009710BE /* libitkopenjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkopenjpeg.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkopenjpeg.a; sourceTree = "<group>"; };
+		98A5D763149F433E009710BE /* libitkpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkpng.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkpng.a; sourceTree = "<group>"; };
+		98A5D764149F433E009710BE /* libITKSpatialObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKSpatialObject.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKSpatialObject.a; sourceTree = "<group>"; };
+		98A5D765149F433E009710BE /* libITKStatistics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKStatistics.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKStatistics.a; sourceTree = "<group>"; };
+		98A5D766149F433E009710BE /* libitktestlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitktestlib.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitktestlib.a; sourceTree = "<group>"; };
+		98A5D767149F433E009710BE /* libitktiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitktiff.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitktiff.a; sourceTree = "<group>"; };
+		98A5D768149F433E009710BE /* libitkv3p_lsqr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkv3p_lsqr.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkv3p_lsqr.a; sourceTree = "<group>"; };
+		98A5D769149F433E009710BE /* libitkv3p_netlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkv3p_netlib.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkv3p_netlib.a; sourceTree = "<group>"; };
+		98A5D76A149F433E009710BE /* libitkvcl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkvcl.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkvcl.a; sourceTree = "<group>"; };
+		98A5D76B149F433E009710BE /* libitkvnl_algo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkvnl_algo.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkvnl_algo.a; sourceTree = "<group>"; };
+		98A5D76C149F433E009710BE /* libitkvnl_inst.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkvnl_inst.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkvnl_inst.a; sourceTree = "<group>"; };
+		98A5D76D149F433E009710BE /* libitkvnl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkvnl.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkvnl.a; sourceTree = "<group>"; };
+		98A5D76E149F433E009710BE /* libitkzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libitkzlib.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libitkzlib.a; sourceTree = "<group>"; };
+		98A5D76F149F433E009710BE /* libITKznz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libITKznz.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/libITKznz.a; sourceTree = "<group>"; };
+		98A5D770149F433E009710BE /* librefactored_itksys.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librefactored_itksys.a; path = ../../../../../Volumes/part_exfat/ib/itk/bin/Debug/librefactored_itksys.a; sourceTree = "<group>"; };
 		98F5991F1468075C0090459C /* bartImportFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bartImportFilter.cpp; sourceTree = "<group>"; };
 		98F599201468075C0090459C /* bartImportFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = bartImportFilter.h; sourceTree = "<group>"; };
 		AB5D36050680E57E00F4007A /* bart4.osirixplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bart4.osirixplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +115,37 @@
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				8420023212E829A200E1E9CE /* OsiriXAPI.framework in Frameworks */,
+				98A5D772149F433E009710BE /* libITKAlgorithms.a in Frameworks */,
+				98A5D773149F433E009710BE /* libITKBasicFilters.a in Frameworks */,
+				98A5D774149F433E009710BE /* libITKCommon.a in Frameworks */,
+				98A5D775149F433E009710BE /* libITKDICOMParser.a in Frameworks */,
+				98A5D776149F433E009710BE /* libITKEXPAT.a in Frameworks */,
+				98A5D777149F433E009710BE /* libITKFEM.a in Frameworks */,
+				98A5D778149F433E009710BE /* libitkgdcm.a in Frameworks */,
+				98A5D779149F433E009710BE /* libITKIO.a in Frameworks */,
+				98A5D77A149F433E009710BE /* libitkjpeg8.a in Frameworks */,
+				98A5D77B149F433E009710BE /* libitkjpeg12.a in Frameworks */,
+				98A5D77C149F433E009710BE /* libitkjpeg16.a in Frameworks */,
+				98A5D77D149F433E009710BE /* libITKMetaIO.a in Frameworks */,
+				98A5D77E149F433E009710BE /* libitkNetlibSlatec.a in Frameworks */,
+				98A5D77F149F433E009710BE /* libITKniftiio.a in Frameworks */,
+				98A5D780149F433E009710BE /* libITKNrrdIO.a in Frameworks */,
+				98A5D781149F433E009710BE /* libITKNumerics.a in Frameworks */,
+				98A5D782149F433E009710BE /* libitkopenjpeg.a in Frameworks */,
+				98A5D783149F433E009710BE /* libitkpng.a in Frameworks */,
+				98A5D784149F433E009710BE /* libITKSpatialObject.a in Frameworks */,
+				98A5D785149F433E009710BE /* libITKStatistics.a in Frameworks */,
+				98A5D786149F433E009710BE /* libitktestlib.a in Frameworks */,
+				98A5D787149F433E009710BE /* libitktiff.a in Frameworks */,
+				98A5D788149F433E009710BE /* libitkv3p_lsqr.a in Frameworks */,
+				98A5D789149F433E009710BE /* libitkv3p_netlib.a in Frameworks */,
+				98A5D78A149F433E009710BE /* libitkvcl.a in Frameworks */,
+				98A5D78B149F433E009710BE /* libitkvnl_algo.a in Frameworks */,
+				98A5D78C149F433E009710BE /* libitkvnl_inst.a in Frameworks */,
+				98A5D78D149F433E009710BE /* libitkvnl.a in Frameworks */,
+				98A5D78E149F433E009710BE /* libitkzlib.a in Frameworks */,
+				98A5D78F149F433E009710BE /* libITKznz.a in Frameworks */,
+				98A5D790149F433E009710BE /* librefactored_itksys.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +194,38 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98A5D751149F433E009710BE /* itkmkg3states */,
+				98A5D752149F433E009710BE /* libITKAlgorithms.a */,
+				98A5D753149F433E009710BE /* libITKBasicFilters.a */,
+				98A5D754149F433E009710BE /* libITKCommon.a */,
+				98A5D755149F433E009710BE /* libITKDICOMParser.a */,
+				98A5D756149F433E009710BE /* libITKEXPAT.a */,
+				98A5D757149F433E009710BE /* libITKFEM.a */,
+				98A5D758149F433E009710BE /* libitkgdcm.a */,
+				98A5D759149F433E009710BE /* libITKIO.a */,
+				98A5D75A149F433E009710BE /* libitkjpeg8.a */,
+				98A5D75B149F433E009710BE /* libitkjpeg12.a */,
+				98A5D75C149F433E009710BE /* libitkjpeg16.a */,
+				98A5D75D149F433E009710BE /* libITKMetaIO.a */,
+				98A5D75E149F433E009710BE /* libitkNetlibSlatec.a */,
+				98A5D75F149F433E009710BE /* libITKniftiio.a */,
+				98A5D760149F433E009710BE /* libITKNrrdIO.a */,
+				98A5D761149F433E009710BE /* libITKNumerics.a */,
+				98A5D762149F433E009710BE /* libitkopenjpeg.a */,
+				98A5D763149F433E009710BE /* libitkpng.a */,
+				98A5D764149F433E009710BE /* libITKSpatialObject.a */,
+				98A5D765149F433E009710BE /* libITKStatistics.a */,
+				98A5D766149F433E009710BE /* libitktestlib.a */,
+				98A5D767149F433E009710BE /* libitktiff.a */,
+				98A5D768149F433E009710BE /* libitkv3p_lsqr.a */,
+				98A5D769149F433E009710BE /* libitkv3p_netlib.a */,
+				98A5D76A149F433E009710BE /* libitkvcl.a */,
+				98A5D76B149F433E009710BE /* libitkvnl_algo.a */,
+				98A5D76C149F433E009710BE /* libitkvnl_inst.a */,
+				98A5D76D149F433E009710BE /* libitkvnl.a */,
+				98A5D76E149F433E009710BE /* libitkzlib.a */,
+				98A5D76F149F433E009710BE /* libITKznz.a */,
+				98A5D770149F433E009710BE /* librefactored_itksys.a */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -130,6 +265,10 @@
 				ABA48A660680BB690089EB4F /* bart4Filter.m */,
 				98F5991F1468075C0090459C /* bartImportFilter.cpp */,
 				98F599201468075C0090459C /* bartImportFilter.h */,
+				98525EEB1487ABBA00B55C44 /* definicje.h */,
+				9885A55F149F7B96005764ED /* bart4Controller.h */,
+				9885A560149F7B96005764ED /* bart4Controller.m */,
+				9885A563149F7D5B005764ED /* bart4Window.xib */,
 			);
 			name = bart4Filter;
 			sourceTree = "<group>";
@@ -145,6 +284,8 @@
 				ABA48A650680BB600089EB4F /* bart4Filter.h in Headers */,
 				98F599221468075C0090459C /* bartImportFilter.h in Headers */,
 				98794BD4146DC96E0069F9D1 /* importFilterWrapper.h in Headers */,
+				98525EEC1487ABBB00B55C44 /* definicje.h in Headers */,
+				9885A561149F7B96005764ED /* bart4Controller.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				98A5D771149F433E009710BE /* itkmkg3states in Resources */,
+				9885A564149F7D5B005764ED /* bart4Window.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +367,7 @@
 				ABA48A670680BB690089EB4F /* bart4Filter.m in Sources */,
 				98F599211468075C0090459C /* bartImportFilter.cpp in Sources */,
 				98794BD5146DC96E0069F9D1 /* importFilterWrapper.m in Sources */,
+				9885A562149F7B96005764ED /* bart4Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +388,7 @@
 		CE6A9A9108AC841300D0C1EE /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = /Applications/Utilities/osirix/osirix/build/Development/OsiriX.app/Contents/MacOS/OsiriX;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -257,22 +402,23 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = bart4_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = 4.2;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
-				);
+				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = bart4;
 				SECTORDER_FLAGS = "";
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
+				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -286,6 +432,7 @@
 		CE6A9A9208AC841300D0C1EE /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = /Applications/Utilities/osirix/osirix/build/Development/OsiriX.app/Contents/MacOS/OsiriX;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -295,22 +442,23 @@
 				GCC_ENABLE_TRIGRAPHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = bart4_Prefix.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = 4.2;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "${inherited}";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "${inherited}";
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
-				);
+				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = bart4;
 				SECTORDER_FLAGS = "";
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
+				USER_HEADER_SEARCH_PATHS = "${inherited}";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -325,10 +473,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				BUNDLE_LOADER = /Applications/Utilities/osirix/osirix/build/Development/OsiriX.app/Contents/MacOS/OsiriX;
+				FRAMEWORK_SEARCH_PATHS = (
+					ITK180/bin/Debug,
+					"ITK180/bin/**",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					ITK180/bin/Debug,
+					"ITK180/bin/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = "";
-				USER_HEADER_SEARCH_PATHS = "ITK180 ITK180/Code/** ITK180/Utilities/expat ITK180/Utilities/vxl/core ITK180/Utilities/vxl/vcl ITK180/Utilities";
+				USER_HEADER_SEARCH_PATHS = "ITK180 ITK180/Code/** ITK180/Utilities/expat ITK180/Utilities/vxl/core ITK180/Utilities/vxl/vcl ITK180/Utilities ITK180/Code/Common ITK180/Code/IO ITK180/Code/Algorithms ITK180/Code/BasicFilters";
 			};
 			name = Development;
 		};
@@ -336,10 +497,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				BUNDLE_LOADER = /Applications/Utilities/osirix/osirix/build/Development/OsiriX.app/Contents/MacOS/OsiriX;
+				FRAMEWORK_SEARCH_PATHS = (
+					ITK180/bin/Debug,
+					"ITK180/bin/**",
+				);
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					ITK180/bin/Debug,
+					"ITK180/bin/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = "";
-				USER_HEADER_SEARCH_PATHS = "ITK180 ITK180/Code/** ITK180/Utilities/expat ITK180/Utilities/vxl/core ITK180/Utilities/vxl/vcl ITK180/Utilities";
+				USER_HEADER_SEARCH_PATHS = "ITK180 ITK180/Code/** ITK180/Utilities/expat ITK180/Utilities/vxl/core ITK180/Utilities/vxl/vcl ITK180/Utilities ITK180/Code/Common ITK180/Code/IO ITK180/Code/Algorithms ITK180/Code/BasicFilters";
 			};
 			name = Deployment;
 		};

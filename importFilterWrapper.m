@@ -5,7 +5,7 @@
 //  Created by Bartlomiej Pycinski on 11-11-11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
-
+#include "definicje.h"
 #import "importFilterWrapper.h"
 #import "OsiriXAPI/DCMPix.h"
 #import "OsiriXAPI/ViewerController.h"
@@ -56,6 +56,7 @@
     voxelSpacing[2] = [firstPix sliceInterval] || [firstPix sliceThickness]; //if (sliceInterval==0) then sliceThickness
 
     importFilter->setInputParameters (size, [viewerController volumePtr], voxelSpacing, originConverted, false);
+    
                                       
 }
 
@@ -76,7 +77,7 @@
 
 }
 
-- (void)DisplayImage:(itk::Image<float,3> *)lastFilterOutput {
+- (void)DisplayImage:(itkns::Image<float,3> *)lastFilterOutput {
 
     float* resultBuff = lastFilterOutput->GetBufferPointer();
     //ponizszy wiersz to iloczyn sizeof(float)*size[0]*size[1]*size[2]
@@ -91,7 +92,7 @@
 }
 
 //TODO chyba inny typ zwracany ?
--(itk::Image<float,3>*) GetOutput
+-(itkns::Image<float,3>*) GetOutput
 {
     return importFilter->GetOutput();
 }
