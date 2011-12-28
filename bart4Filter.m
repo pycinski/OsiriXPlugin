@@ -67,15 +67,7 @@
     thresholdFilter->Update();
     
     [wrapper DisplayImage: thresholdFilter->GetOutput()];
-    
-    //    float* resultBuff = thresholdFilter->GetOutput()->GetBufferPointer();
-    //    int* pixelSize = [wrapper GetSize];
-    //    //ponizszy wiersz to iloczyn sizeof(float)*size[0]*size[1]*size[2]
-    //    int bufferSize = std::accumulate(pixelSize, pixelSize+3, sizeof(float), std::multiplies<int>());
-    //    memcpy ([viewerController volumePtr], resultBuff, bufferSize);
-    
-    //[viewerController needsDisplayUpdate];
-    
+
     //NSRunInformationalAlertPanel(@"Informacja", @"Zakonczono obrobke obrazu", @"OK", 0L, 0L);
     
     //return 0;
